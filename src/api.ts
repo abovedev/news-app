@@ -7,9 +7,9 @@ export const fetchArticles = async (query: string = '', page: number = 1, pageSi
   try {
     const response = await axios.get(`${BASE_URL}everything`, {
       params: {
-        q: query || 'news',  // Default query if empty
+        q: query || 'news', 
         apiKey: API_KEY,
-        pageSize: pageSize,  // Use the pageSize parameter
+        pageSize: pageSize, 
         page: page,
         language: 'en',
       },
