@@ -1,0 +1,591 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: calc(100vw * 1200 / 1900);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: calc(100vw * 75 / 1900) calc(100vw * 35 / 1900);
+  border-left: calc(100vw * 1 / 1900) solid #097392;
+  border-right: calc(100vw * 1 / 1900) solid #097392;
+  background-color: #fff0c3;
+  box-shadow: calc(100vw* 5 / 1900) calc(100vw* 5 / 1900) calc(100vw* 10 / 1900) rgb(0 0 0 / 10%);
+}
+
+h1 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: calc(100vw * 80 / 1900);
+  line-height: 1;
+  color: #097392;
+  margin: 0 0 calc(100vw * 55 / 1900);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+.filters button {
+  border: none;
+  background-color: transparent;
+  padding: calc(100vw* 10 / 1900);
+  border: calc(100vw* 1 / 1900) solid #83b4b3;
+  cursor: pointer;
+}
+.filters button svg {
+  font-size: calc(100vw* 28 / 1900);
+  color: #83b4b3;
+}
+.filters .search input {
+  font-family: "Josefin Sans", system-ui;
+  font-size: calc(100vw* 28 / 1900);
+  font-weight: 300;
+  border: calc(100vw* 1 / 1900) solid rgb(225 222 215 / 100%);
+  background-color: rgb(255 252 245 / 90%);
+  padding: calc(100vw* 10 / 1900);
+}
+.filters .search input:focus{
+  outline: none;
+}
+
+table {
+  width: 100%;
+  border: none;
+  font-family: "Josefin Sans", system-ui;
+  margin: calc(100vw * 15 / 1900) 0 calc(100vw * 25 / 1900);
+  box-shadow: calc(100vw* 5 / 1900) calc(100vw* 5 / 1900) calc(100vw* 10 / 1900) rgb(0 0 0 / 10%);
+  cursor: default;
+  border-radius: calc(100vw* 10 / 1900);
+  border-collapse: separate !important;
+}
+
+table thead tr {
+  background-color: #83b4b3;
+  color: rgb(255 252 245 / 90%);
+}
+
+table thead tr th {
+  padding: calc(100vw * 15 / 1900);
+  cursor: pointer;
+}
+table tbody tr:nth-child(odd) {
+  background-color: rgb(255 247 224);
+  color: #383838;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+table tbody tr:nth-child(even) {
+  background-color: rgb(255 252 245 / 90%);
+  color: #383838;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+table tbody tr:hover {
+  transform: scale(1.02);
+  box-shadow: calc(100vw* 5 / 1900) calc(100vw* 5 / 1900) calc(100vw* 10 / 1900) rgb(0 0 0 / 10%);
+  background-color: rgb(183 215 214 / 80%);
+  backdrop-filter: blur(calc(100vw* 5 / 1900));
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+table tbody tr td {
+  padding: calc(100vw * 15 / 1900);
+}
+
+table tbody tr td .author {
+  padding: calc(100vw * 5 / 1900);
+  border: calc(100vw * 1 / 1900) solid #D55534;
+  color: #D55534;
+  background-color: rgb(213 85 52 / 30%);
+  display: inline-block;
+  line-height: 1;
+}
+
+table tbody tr td.article-title {
+  width: 65%;
+}
+table tbody tr td.article-author {
+  width: 25%;
+}
+table tbody tr td.time {
+  width: 10%;
+  text-align: center;
+}
+
+.card-view {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: calc(100vw* 15 / 1900) 0 calc(100vw* 25 / 1900);
+  gap: calc(100vw* 15 / 1900);
+}
+
+.card-view .card {
+  width: calc((100% - 100vw* 30 / 1900) / 3);
+  word-wrap: break-word;
+  box-sizing: border-box;
+  background-color: rgb(255 252 245 / 90%);
+  color: #383838;
+  box-shadow: calc(100vw* 5 / 1900) calc(100vw* 5 / 1900) calc(100vw* 10 / 1900) rgb(0 0 0 / 10%);
+  cursor: default;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-view .card:hover {
+  transform: scale(1.02);
+  backdrop-filter: blur(calc(100vw* 5 / 1900));
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-view .card figure {
+  margin: 0;
+  min-height: calc(100vw * 100 / 1900);
+  background-color: #097392;
+}
+
+.card-view .card figure img {
+  width: 100%;
+  height: auto;
+}
+
+.card-view .card .card-content {
+  padding: calc(100vw* 15 / 1900);
+}
+
+.card-view .card .card-content h3 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-size: calc(100vw* 28 / 1900);
+  line-height: 1;
+  margin: 0 0 calc(100vw* 15 / 1900);
+  color: #383838;
+}
+
+.card-view .card .card-content .author {
+  font-family: "Josefin Sans", system-ui;
+  font-size: calc(100vw* 20 / 1900);
+  font-weight: 500;
+  padding: calc(100vw * 5 / 1900);
+  border: calc(100vw * 1 / 1900) solid #D55534;
+  color: #D55534;
+  background-color: rgb(213 85 52 / 30%);
+  display: inline-block;
+  max-width: 100%;
+  line-height: 1;
+}
+.card-view .card .card-content p {
+  font-family: "Josefin Sans", system-ui;
+  font-size: calc(100vw * 20 / 1900);
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 calc(100vw* 15 / 1900);
+  color: #383838;
+}
+
+.page-controls {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Josefin Sans", system-ui;
+  font-size: calc(100vw* 20 / 1900);
+  font-weight: 300;
+}
+
+.page-controls .page-size select {
+  font-family: "Josefin Sans", system-ui;
+  font-size: calc(100vw* 20 / 1900);
+  font-weight: 300;
+  border: calc(100vw* 1 / 1900) solid rgb(225 222 215 / 100%);
+  background-color: rgb(255 252 245 / 90%);
+  padding: calc(100vw* 10 / 1900);
+}
+.page-controls .page-size select:focus{
+  outline: none;
+}
+
+.page-controls .pagination button {
+  border: none;
+  background-color: transparent;
+  padding: calc(100vw* 10 / 1900);
+  margin: 0 calc(100vw* 10 / 1900);
+  border: calc(100vw* 1 / 1900) solid #83b4b3;
+  cursor: pointer;
+}
+
+.page-controls .pagination button svg {
+  font-size: calc(100vw* 20 / 1900);
+  color: #83b4b3;
+}
+
+.page-controls .pagination button:disabled {
+  border: calc(100vw* 1 / 1900) solid rgb(225 222 215 / 100%);
+}
+.page-controls .pagination button:disabled svg {
+  color: rgb(225 222 215 / 100%);
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 1200px) {  
+  .container {
+    max-width: 100%;
+    min-height: 100vh;
+    padding: calc(100vw * 75 / 1200) calc(100vw * 35 / 1200);
+  }
+  
+  h1 {
+    font-size: calc(100vw * 80 / 1200);
+    margin: 0 0 calc(100vw * 55 / 1200);
+  }
+  .filters button {
+    padding: calc(100vw* 10 / 1200);
+    border: calc(100vw* 1 / 1200) solid #83b4b3;
+  }
+  .filters button svg {
+    font-size: calc(100vw* 24 / 1200);
+  }
+  .filters .search input {
+    font-size: calc(100vw* 24 / 1200);
+    border: calc(100vw* 1 / 1200) solid rgb(225 222 215 / 100%);
+    padding: calc(100vw* 10 / 1200);
+  }
+  
+  table {
+    margin: calc(100vw * 15 / 1200) 0 calc(100vw * 25 / 1200);
+    box-shadow: calc(100vw* 5 / 1200) calc(100vw* 5 / 1200) calc(100vw* 10 / 1200) rgb(0 0 0 / 10%);
+  }
+  
+  table thead tr th {
+    padding: calc(100vw * 10 / 1200);
+  }
+  
+  table tbody tr:hover {
+    transform: scale(1.02);
+    box-shadow: calc(100vw* 5 / 1200) calc(100vw* 5 / 1200) calc(100vw* 10 / 1200) rgb(0 0 0 / 10%);
+    backdrop-filter: blur(calc(100vw* 5 / 1200));
+  }
+  
+  table tbody tr td {
+    padding: calc(100vw * 10 / 1200);
+  }
+  
+  table tbody tr td .author {
+    padding: calc(100vw * 5 / 1200);
+    border: calc(100vw * 1 / 1200) solid #D55534;
+  }
+  
+  table tbody tr td.article-title {
+    width: 65%;
+  }
+  table tbody tr td.article-author {
+    width: 25%;
+  }
+  table tbody tr td.time {
+    width: 10%;
+  }
+  
+  .card-view {
+    margin: calc(100vw* 15 / 1200) 0 calc(100vw* 25 / 1200);
+    gap: calc(100vw* 15 / 1200);
+  }
+  
+  .card-view .card {
+    width: calc((100% - 100vw* 30 / 1200) / 3);
+    box-shadow: calc(100vw* 5 / 1200) calc(100vw* 5 / 1200) calc(100vw* 10 / 1200) rgb(0 0 0 / 10%);
+  }
+  
+  .card-view .card:hover {
+    backdrop-filter: blur(calc(100vw* 5 / 1200));
+  }
+  
+  .card-view .card figure {
+    min-height: calc(100vw * 100 / 1200);
+  }
+  
+  .card-view .card .card-content {
+    padding: calc(100vw * 15 / 1200);
+  }
+  
+  .card-view .card .card-content h3 {
+    font-size: calc(100vw* 28 / 1200);
+    margin: 0 0 calc(100vw* 15 / 1200);
+  }
+  
+  .card-view .card .card-content .author {
+    font-size: calc(100vw * 20 / 1200);
+    padding: calc(100vw * 5 / 1200);
+    border: calc(100vw * 1 / 1200) solid #D55534;
+  }
+
+  .card-view .card .card-content p {
+    font-size: calc(100vw * 20 / 1200);
+    margin: 0 0 calc(100vw* 15 / 1200);
+  }
+  
+  .page-controls {
+    font-size: calc(100vw* 20 / 1200);
+  }
+  
+  .page-controls .page-size select {
+    font-size: calc(100vw* 20 / 1200);
+    border: calc(100vw* 1 / 1200) solid rgb(225 222 215 / 100%);
+    padding: calc(100vw* 10 / 1200);
+  }
+  
+  .page-controls .pagination button {
+    padding: calc(100vw* 10 / 1200);
+    margin: 0 calc(100vw* 10 / 1200);
+    border: calc(100vw* 1 / 1200) solid #83b4b3;
+  }
+  
+  .page-controls .pagination button svg {
+    font-size: calc(100vw* 20 / 1200);
+  }
+}
+
+
+@media only screen and (max-width: 900px) {  
+  .container {
+    padding: calc(100vw * 75 / 900) calc(100vw * 35 / 900);
+  }
+  
+  h1 {
+    font-size: calc(100vw * 80 / 900);
+    margin: 0 0 calc(100vw * 55 / 900);
+  }
+  .filters button {
+    padding: calc(100vw* 10 / 900);
+    border: calc(100vw* 1 / 900) solid #83b4b3;
+  }
+  .filters button svg {
+    font-size: calc(100vw* 24 / 900);
+  }
+  .filters .search input {
+    font-size: calc(100vw* 24 / 900);
+    border: calc(100vw* 1 / 900) solid rgb(225 222 215 / 100%);
+    padding: calc(100vw* 10 / 900);
+  }
+  
+  table {
+    margin: calc(100vw * 15 / 900) 0 calc(100vw * 25 / 900);
+    box-shadow: calc(100vw* 5 / 900) calc(100vw* 5 / 900) calc(100vw* 10 / 900) rgb(0 0 0 / 10%);
+  }
+  
+  table thead tr th {
+    padding: calc(100vw * 10 / 900);
+  }
+  
+  table tbody tr:hover {
+    box-shadow: calc(100vw* 5 / 900) calc(100vw* 5 / 900) calc(100vw* 10 / 900) rgb(0 0 0 / 10%);
+    backdrop-filter: blur(calc(100vw* 5 / 900));
+  }
+  
+  table tbody tr td {
+    font-size: calc(100vw * 20 / 900);
+    padding: calc(100vw * 10 / 900);
+  }
+  
+  table tbody tr td .author {
+    padding: calc(100vw * 5 / 900);
+    border: calc(100vw * 1 / 900) solid #D55534;
+  }
+  
+  table tbody tr td.article-title {
+    width: 65%;
+  }
+  table tbody tr td.article-author {
+    width: 25%;
+  }
+  table tbody tr td.time {
+    width: 10%;
+  }
+  
+  .card-view {
+    margin: calc(100vw * 15 / 900) 0 calc(100vw* 25 / 900);
+    gap: calc(100vw * 15 / 900);
+  }
+  
+  .card-view .card {
+    width: calc((100% - 100vw * 15 / 900) / 2);
+    box-shadow: calc(100vw* 5 / 900) calc(100vw* 5 / 900) calc(100vw* 10 / 900) rgb(0 0 0 / 10%);
+  }
+  
+  .card-view .card:hover {
+    backdrop-filter: blur(calc(100vw* 5 / 900));
+  }
+  
+  .card-view .card figure {
+    min-height: calc(100vw * 100 / 900);
+  }
+  
+  .card-view .card .card-content {
+    padding: calc(100vw * 15 / 900);
+  }
+  
+  .card-view .card .card-content h3 {
+    font-size: calc(100vw* 28 / 900);
+    margin: 0 0 calc(100vw* 15 / 900);
+  }
+  
+  .card-view .card .card-content .author {
+    font-size: calc(100vw * 20 / 900);
+    padding: calc(100vw * 5 / 900);
+    border: calc(100vw * 1 / 900) solid #D55534;
+  }
+
+  .card-view .card .card-content p {
+    font-size: calc(100vw * 20 / 900);
+    margin: 0 0 calc(100vw* 15 / 900);
+  }
+  
+  .page-controls {
+    font-size: calc(100vw* 20 / 900);
+  }
+  
+  .page-controls .page-size select {
+    font-size: calc(100vw* 20 / 900);
+    border: calc(100vw* 1 / 900) solid rgb(225 222 215 / 100%);
+    padding: calc(100vw* 10 / 900);
+  }
+  
+  .page-controls .pagination button {
+    padding: calc(100vw* 10 / 900);
+    margin: 0 calc(100vw* 10 / 900);
+    border: calc(100vw* 1 / 900) solid #83b4b3;
+  }
+  
+  .page-controls .pagination button svg {
+    font-size: calc(100vw* 20 / 900);
+  }
+}
+
+@media only screen and (max-width: 750px) {  
+  .container {
+    padding: calc(100vw * 55 / 365) calc(100vw * 25 / 365);
+  }
+  
+  h1 {
+    font-size: calc(100vw * 48 / 365);
+    margin: 0 0 calc(100vw * 35 / 365);
+  }
+  .filters button {
+    padding: calc(100vw* 10 / 365);
+    border: calc(100vw* 1 / 365) solid #83b4b3;
+  }
+  .filters button svg {
+    font-size: calc(100vw * 16 / 365);
+  }
+  .filters .search input {
+    font-size: calc(100vw * 16 / 365);
+    border: calc(100vw * 1 / 365) solid rgb(225 222 215 / 100%);
+    padding: calc(100vw * 10 / 365);
+  }
+  
+  table {
+    margin: calc(100vw * 15 / 365) 0 calc(100vw * 25 / 365);
+    box-shadow: calc(100vw* 5 / 365) calc(100vw* 5 / 365) calc(100vw* 10 / 365) rgb(0 0 0 / 10%);
+    word-wrap:break-word;
+    width: calc(100vw* 320 / 365);
+  }
+
+  table thead tr {
+    display: flex;
+  }
+  
+  table thead tr th {
+    padding: calc(100vw * 5 / 365);
+    width: 33%;
+  }
+  
+  table tbody tr:hover {
+    box-shadow: calc(100vw * 5 / 365) calc(100vw * 5 / 365) calc(100vw * 10 / 365) rgb(0 0 0 / 10%);
+    backdrop-filter: blur(calc(100vw * 5 / 365));
+  }
+  
+  table tbody tr {
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw* 320 / 365);
+  }
+  
+  table tbody tr td {
+    font-size: calc(100vw * 16 / 365);
+    padding: calc(100vw * 5 / 365) calc(100vw * 10 / 365);
+  }
+  
+  table tbody tr td .author {
+    padding: calc(100vw * 5 / 365);
+    border: calc(100vw * 1 / 365) solid #D55534;
+  }
+  
+  table tbody tr td.article-title,
+  table tbody tr td.article-author,
+  table tbody tr td.time {
+    width: 100%;
+  }
+  
+  .card-view {
+    margin: calc(100vw * 15 / 365) 0 calc(100vw* 25 / 365);
+    gap: calc(100vw * 15 / 365);
+  }
+  
+  .card-view .card {
+    width: 100%;
+    box-shadow: calc(100vw* 5 / 365) calc(100vw* 5 / 365) calc(100vw* 10 / 365) rgb(0 0 0 / 10%);
+  }
+  
+  .card-view .card:hover {
+    backdrop-filter: blur(calc(100vw* 5 / 365));
+  }
+  
+  .card-view .card figure {
+    min-height: calc(100vw * 100 / 365);
+  }
+  
+  .card-view .card .card-content {
+    padding: calc(100vw * 15 / 365);
+  }
+  
+  .card-view .card .card-content h3 {
+    font-size: calc(100vw* 28 / 365);
+    margin: 0 0 calc(100vw* 15 / 365);
+  }
+  
+  .card-view .card .card-content .author {
+    font-size: calc(100vw * 16 / 365);
+    padding: calc(100vw * 5 / 365);
+    border: calc(100vw * 1 / 365) solid #D55534;
+  }
+
+  .card-view .card .card-content p {
+    font-size: calc(100vw * 16 / 365);
+    margin: 0 0 calc(100vw* 15 / 365);
+  }
+  
+  .page-controls {
+    font-size: calc(100vw * 16 / 365);
+  }
+  
+  .page-controls .page-size select {
+    font-size: calc(100vw * 16 / 365);
+    border: calc(100vw * 1 / 365) solid rgb(225 222 215 / 100%);
+    padding: calc(100vw * 10 / 365);
+  }
+  
+  .page-controls .pagination button {
+    padding: calc(100vw * 10 / 365);
+    margin: 0 calc(100vw * 10 / 365);
+    border: calc(100vw * 1 / 365) solid #83b4b3;
+  }
+  
+  .page-controls .pagination button svg {
+    font-size: calc(100vw * 16 / 365);
+  }
+}
