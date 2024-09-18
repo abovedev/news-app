@@ -89,9 +89,9 @@ const ArticleTable: React.FC = () => {
         <div className='view'>
           <button onClick={toggleViewMode}>
             {viewMode === 'list' ? (
-              <FontAwesomeIcon icon={faGrip} /> // Grid icon when in list view
+              <FontAwesomeIcon icon={faGrip} />
             ) : (
-              <FontAwesomeIcon icon={faList} />  // List icon when in card view
+              <FontAwesomeIcon icon={faList} /> 
             )}
           </button>
         </div>
